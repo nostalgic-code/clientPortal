@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AstroTechnologies Portal — System Documentation</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-layout">
+
+<!-- ════════════════════════════════════════════════
+     SIDEBAR NAVIGATION
+     ════════════════════════════════════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">AT</div>
+    <div>
+      <div class="sidebar-title">AstroTechnologies</div>
+      <div class="sidebar-subtitle">Portal Documentation v2.0</div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-title">Overview</div>
+    <a class="nav-link active" href="#overview">
+      <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75z"/></svg>
+      Overview
+    </a>
+    <a class="nav-link" href="#tech-stack">
+      <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75z"/></svg>
+      Tech Stack
+    </a>
+    <a class="nav-link" href="#architecture">
+      <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6 2a.75.75 0 01.696.471L10 10.731l1.304-3.26A.75.75 0 0112 7h3.25a.75.75 0 010 1.5h-2.742l-1.812 4.528a.75.75 0 01-1.392 0L6 4.77 4.696 8.03A.75.75 0 014 8.5H.75a.75.75 0 010-1.5h2.742l1.812-4.528A.75.75 0 016 2z"/></svg>
+      Architecture
+    </a>
+
+    <div class="nav-divider"></div>
+    <div class="nav-section-title">System Design</div>
+    <a class="nav-link" href="#auth-system">
+      <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M9.585.52a2.678 2.678 0 00-3.17 0l-.928.68a1.178 1.178 0 01-.518.215L3.83 1.59a2.678 2.678 0 00-2.24 2.24l-.175 1.14a1.178 1.178 0 01-.215.518l-.68.928a2.678 2.678 0 000 3.17l.68.928c.113.153.186.33.215.518l.175 1.138a2.678 2.678 0 002.24 2.24l1.138.175c.187.029.365.102.518.215l.928.68a2.678 2.678 0 003.17 0l.928-.68a1.17 1.17 0 01.518-.215l1.138-.175a2.678 2.678 0 002.241-2.24l.175-1.138c.029-.187.102-.365.215-.518l.68-.928a2.678 2.678 0 000-3.17l-.68-.928a1.179 1.179 0 01-.215-.518L14.41 3.83a2.678 2.678 0 00-2.24-2.24l-1.138-.175a1.179 1.179 0 01-.518-.215L9.585.52zM7.303 1.728c.415-.305.979-.305 1.394 0l.928.68c.348.256.752.423 1.18.489l1.136.174c.51.078.909.478.987.987l.174 1.137c.066.427.233.831.489 1.18l.68.927c.305.415.305.98 0 1.394l-.68.928a2.678 2.678 0 00-.489 1.18l-.174 1.136a1.178 1.178 0 01-.987.987l-1.137.174a2.678 2.678 0 00-1.18.489l-.927.68c-.415.305-.98.305-1.394 0l-.928-.68a2.678 2.678 0 00-1.18-.489l-1.136-.174a1.178 1.178 0 01-.987-.987l-.174-1.137a2.678 2.678 0 00-.489-1.18l-.68-.927a1.178 1.178 0 010-1.394l.68-.928c.256-.348.423-.752.489-1.18l.174-1.136c.078-.51.478-.909.987-.987l1.137-.174a2.678 2.678 0 001.18-.489l.927-.68zM11.28 6.78a.75.75 0 00-1.06-1.06L7 8.94 5.78 7.72a.75.75 0 00-1.06 1.06l1.75 1.75a.75.75 0 001.06 0l3.75-3.75z"/></svg>
+      Authentication
+    </a>
+    <a class="nav-link" href="#data-model">
+      <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2.5 0a.75.75 0 000 1.5h11a.75.75 0 000-1.5h-11zM1 4.75A.75.75 0 011.75 4h12.5a.75.75 0 01.75.75v8.5a.75.75 0 01-.75.75H1.75a.75.75 0 01-.75-.75v-8.5zm1.5.75v7h11v-7h-11z"/></svg>
+      Data Model
+    </a>
+    <a class="nav-link" href="#client-portal">
+      <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M1.5 14.25c0 .138.112.25.25.25H4v-1.25a.75.75 0 01.75-.75h2.5a.75.75 0 01.75.75v1.25h2.25a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25h-8.5a.25.25 0 00-.25.25v12.5zM1.75 16A1.75 1.75 0 010 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 00.25-.25V8.285a.25.25 0 00-.111-.208l-1.055-.703a.75.75 0 11.832-1.248l1.055.703c.487.325.779.871.779 1.456v5.965A1.75 1.75 0 0114.25 16h-3.5a.75.75 0 01-.197-.026c-.099.017-.2.026-.303.026h-3a.75.75 0 01-.75-.75V14h-1v1.25a.75.75 0 01-.75.75h-3zM3 3.75A.75.75 0 013.75 3h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 3.75zM3.75 6a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM3 9.75A.75.75 0 013.75 9h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 9.75zM7.75 9a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM7 3.75A.75.75 0 017.75 3h.5a.75.75 0 010 1.5h-.5A.75.75 0 017 3.75zM7.75 6a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5z"/></svg>
+      Client Portal Flow
+    </a>
+
+    <div class="nav-divider"></div>
+    <div class="nav-section-title">API Reference</div>
+    <a class="nav-link" href="#api-auth">🔐 Auth</a>
+    <a class="nav-link" href="#api-clients">👥 Clients</a>
+    <a class="nav-link" href="#api-templates">📝 Templates</a>
+    <a class="nav-link" href="#api-documents">📄 Documents</a>
+    <a class="nav-link" href="#api-proposals">📋 Proposals</a>
+    <a class="nav-link" href="#api-projects">📁 Projects</a>
+    <a class="nav-link" href="#api-invoices">💰 Invoices</a>
+    <a class="nav-link" href="#api-portal">🌐 Portal</a>
+    <a class="nav-link" href="#api-org">🏢 Organization</a>
+
+    <div class="nav-divider"></div>
+    <div class="nav-section-title">Quality</div>
+    <a class="nav-link" href="#test-cases">
+      <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.952a.75.75 0 001.055.008l4.557-4.45z"/></svg>
+      Test Cases
+    </a>
+    <a class="nav-link" href="#error-handling">
+      <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"/></svg>
+      Error Handling
+    </a>
+    <a class="nav-link" href="#deployment">
+      <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1h-8a1 1 0 00-1 1v6.708A2.486 2.486 0 014.5 9h8V1.5zm-8 11h8v1.5h-8a1 1 0 01-1-1v-.5z"/></svg>
+      Deployment
+    </a>
+  </nav>
+</aside>
+
+<!-- ════════════════════════════════════════════════
+     MAIN CONTENT AREA
+     ════════════════════════════════════════════════ -->
+<main class="main-content">
+
+  <!-- Header Bar -->
+  <header class="content-header">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      <div class="breadcrumb">
+        <a href="#">Docs</a>
+        <span class="separator">›</span>
+        <span>System Architecture</span>
+      </div>
+    </div>
+    <div class="search-box">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="opacity:0.5"><path fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"/></svg>
+      <input type="text" id="doc-search" placeholder="Search documentation...">
+      <span class="kbd">⌘K</span>
+    </div>
+  </header>
+
+  <div class="content-body">
+
+    <!-- ════════════════════════════════════════════
+         §1 — OVERVIEW
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="overview">
+      <div class="page-header">
+        <h1>AstroTechnologies Portal</h1>
+        <p class="subtitle">
+          A multi-tenant SaaS client management platform for creative agencies. Provides admin dashboard for 
+          managing clients, proposals, projects, documents, invoices, and a dedicated client portal for 
+          self-service access.
+        </p>
+        <div class="meta">
+          <span class="badge badge-green">● Production v2.0</span>
+          <span>Last updated: Feb 8, 2026</span>
+          <span>65 API Endpoints</span>
+          <span>17 Database Tables</span>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-pill"><div class="stat-value">65</div><div class="stat-label">API Endpoints</div></div>
+        <div class="stat-pill"><div class="stat-value">17</div><div class="stat-label">DB Tables</div></div>
+        <div class="stat-pill"><div class="stat-value">9</div><div class="stat-label">Flask Blueprints</div></div>
+        <div class="stat-pill"><div class="stat-value">12</div><div class="stat-label">Document Types</div></div>
+        <div class="stat-pill"><div class="stat-value">2</div><div class="stat-label">User Roles</div></div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon" style="background:rgba(88,166,255,0.1);color:var(--accent);">🖥️</div>
+          <h4>Admin Dashboard</h4>
+          <p>Manage clients, proposals, projects, documents, invoices, templates, and organization settings from a unified interface.</p>
+          <div class="card-footer"><span>10 pages</span><span>Next.js App Router</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:rgba(63,185,80,0.1);color:var(--green);">🌐</div>
+          <h4>Client Portal</h4>
+          <p>Self-service portal where clients view proposals, sign documents, track project progress, view invoices, and upload resources.</p>
+          <div class="card-footer"><span>6 pages</span><span>Role-based access</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:rgba(188,140,255,0.1);color:var(--purple);">🔧</div>
+          <h4>Template Engine</h4>
+          <p>12 document types with variable interpolation ({{placeholders}}). Generate personalized documents per client from reusable templates.</p>
+          <div class="card-footer"><span>Markdown rendering</span><span>Version control</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:rgba(210,153,34,0.1);color:var(--orange);">💰</div>
+          <h4>Invoice System</h4>
+          <p>Create invoices with subtotal, tax, discount, and currency support. Auto-generated invoice numbers (INV-YYYY-NNNN).</p>
+          <div class="card-footer"><span>ZAR/USD/EUR/GBP</span><span>Tax computation</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §2 — TECH STACK
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="tech-stack">
+      <h2>Tech Stack</h2>
+      
+      <div class="arch-layers">
+        <div class="arch-layer layer-frontend">
+          <div class="arch-layer-header">
+            <span>🎨 Frontend — Presentation Layer</span>
+            <span class="badge badge-blue">Next.js 14+</span>
+          </div>
+          <div class="arch-layer-body">
+            <span class="arch-chip">Next.js 14 App Router</span>
+            <span class="arch-chip">TypeScript</span>
+            <span class="arch-chip">Tailwind CSS</span>
+            <span class="arch-chip">shadcn/ui</span>
+            <span class="arch-chip">Lucide React Icons</span>
+            <span class="arch-chip">react-markdown</span>
+            <span class="arch-chip">remark-gfm</span>
+          </div>
+        </div>
+
+        <div class="arch-layer layer-api">
+          <div class="arch-layer-header">
+            <span>🔗 API Gateway — Proxy Layer</span>
+            <span class="badge badge-green">Next.js Rewrites</span>
+          </div>
+          <div class="arch-layer-body">
+            <span class="arch-chip">next.config.js rewrites</span>
+            <span class="arch-chip">/api/:path* → Flask :5000</span>
+            <span class="arch-chip">CORS (localhost:3000)</span>
+          </div>
+        </div>
+
+        <div class="arch-layer layer-backend">
+          <div class="arch-layer-header">
+            <span>⚙️ Backend — Application Layer</span>
+            <span class="badge badge-orange">Flask / Python 3.13</span>
+          </div>
+          <div class="arch-layer-body">
+            <span class="arch-chip">Flask 3.x</span>
+            <span class="arch-chip">Python 3.13</span>
+            <span class="arch-chip">9 Blueprints</span>
+            <span class="arch-chip">Supabase Python SDK</span>
+            <span class="arch-chip">python-jose (JWT)</span>
+            <span class="arch-chip">Flask-CORS</span>
+          </div>
+        </div>
+
+        <div class="arch-layer layer-data">
+          <div class="arch-layer-header">
+            <span>🗄️ Data — Persistence Layer</span>
+            <span class="badge badge-purple">Supabase</span>
+          </div>
+          <div class="arch-layer-body">
+            <span class="arch-chip">PostgreSQL (Supabase)</span>
+            <span class="arch-chip">Row-Level Security</span>
+            <span class="arch-chip">Supabase Auth (ES256 JWT)</span>
+            <span class="arch-chip">17 Tables</span>
+            <span class="arch-chip">DB Triggers</span>
+            <span class="arch-chip">JSONB columns</span>
+          </div>
+        </div>
+
+        <div class="arch-layer layer-infra">
+          <div class="arch-layer-header">
+            <span>🏗️ Infrastructure — Storage</span>
+            <span class="badge badge-cyan">Local FS + Supabase</span>
+          </div>
+          <div class="arch-layer-body">
+            <span class="arch-chip">Local File Storage (uploads/)</span>
+            <span class="arch-chip">_catalog.json index</span>
+            <span class="arch-chip">16MB max upload</span>
+            <span class="arch-chip">21 allowed file types</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §3 — ARCHITECTURE
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="architecture">
+      <h2>System Architecture</h2>
+      <p>The portal uses a decoupled frontend-backend architecture with Next.js proxying API calls to a Flask backend. All data is stored in Supabase (hosted PostgreSQL) with Row-Level Security policies.</p>
+
+      <div class="diagram-container">
+        <pre><code>
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                            CLIENT BROWSERS                                  │
+│                                                                             │
+│   ┌─────────────────────┐         ┌──────────────────────┐                 │
+│   │  Admin Dashboard     │         │  Client Portal        │                │
+│   │  /dashboard/*        │         │  /portal/*            │                │
+│   │                      │         │                       │                │
+│   │  • Clients           │         │  • Dashboard          │                │
+│   │  • Projects          │         │  • Proposals          │                │
+│   │  • Proposals         │         │  • Documents          │                │
+│   │  • Templates         │         │  • Project Progress   │                │
+│   │  • Documents         │         │  • Invoices           │                │
+│   │  • Invoices          │         │  • File Uploads       │                │
+│   │  • Client Uploads    │         │                       │                │
+│   │  • Reports           │         │                       │                │
+│   │  • Settings          │         │                       │                │
+│   └────────┬─────────────┘         └──────────┬────────────┘                │
+│            │                                   │                            │
+└────────────┼───────────────────────────────────┼────────────────────────────┘
+             │ HTTP (Bearer JWT)                  │ HTTP (Bearer JWT)
+             ▼                                   ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                     NEXT.JS SERVER (localhost:3000)                          │
+│                                                                             │
+│   ┌─────────────────────────────────────────────────────────┐              │
+│   │  next.config.js                                          │              │
+│   │  rewrites: /api/:path* → http://localhost:5000/api/:path │              │
+│   └─────────────────────────────┬────────────────────────────┘              │
+└─────────────────────────────────┼───────────────────────────────────────────┘
+                                  │ Proxy
+                                  ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                     FLASK BACKEND (localhost:5000)                           │
+│                                                                             │
+│   ┌──────────────────────────────────────────────────────────┐             │
+│   │  app.py — Blueprint Registration                          │             │
+│   ├──────────────────────────────────────────────────────────┤             │
+│   │                                                           │             │
+│   │  /api/auth/*           → auth_bp           (6 endpoints) │             │
+│   │  /api/clients/*        → clients_bp        (5 endpoints) │             │
+│   │  /api/proposals/*      → proposals_bp      (7 endpoints) │             │
+│   │  /api/projects/*       → projects_bp       (4 endpoints) │             │
+│   │  /api/invoices/*       → invoices_bp       (5 endpoints) │             │
+│   │  /api/templates/*      → templates_bp      (9 endpoints) │             │
+│   │  /api/documents/*      → documents_bp      (8 endpoints) │             │
+│   │  /api/organization/*   → org_settings_bp   (4 endpoints) │             │
+│   │  /api/portal/*         → client_portal_bp (16 endpoints) │             │
+│   │  /api/health           → inline            (1 endpoint)  │             │
+│   │                                                           │             │
+│   └──────────────────────────┬───────────────────────────────┘             │
+│                              │                                              │
+│   ┌──────────────────────────┴───────────────────────────────┐             │
+│   │  Middleware / Decorators                                   │             │
+│   │  • supabase_auth_required  (validates JWT via Supabase)   │             │
+│   │  • portal_auth_required    (validates Bearer presence)    │             │
+│   │  • get_current_user_id()   (extracts sub from JWT)        │             │
+│   │  • get_user_role()         (admin / client)               │             │
+│   └──────────────────────────────────────────────────────────┘             │
+│                              │                                              │
+└──────────────────────────────┼──────────────────────────────────────────────┘
+                               │ Supabase SDK
+                               ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                     SUPABASE (PostgreSQL + Auth)                             │
+│                                                                             │
+│   ┌──────────────────────┐   ┌──────────────────────┐                      │
+│   │  Supabase Auth        │   │  PostgreSQL           │                      │
+│   │  • ES256 JWT tokens   │   │  • 17 tables          │                      │
+│   │  • Email/password     │   │  • Row-Level Security  │                      │
+│   │  • Admin user mgmt    │   │  • Triggers            │                      │
+│   │  • Session refresh    │   │  • Auto-timestamps     │                      │
+│   └──────────────────────┘   └──────────────────────┘                      │
+│                                                                             │
+│   ┌──────────────────────────────────────────────────────────┐             │
+│   │  Two SDK Clients                                          │             │
+│   │  • supabase        (anon key — for auth operations)       │             │
+│   │  • supabase_admin  (service key — bypasses RLS)           │             │
+│   └──────────────────────────────────────────────────────────┘             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                     LOCAL FILE STORAGE                                       │
+│                                                                             │
+│   backend/uploads/                                                          │
+│   └── portal/                                                               │
+│       └── {client_id}/                                                      │
+│           ├── _catalog.json      (file index with metadata)                 │
+│           ├── {uuid}_file1.pdf   (uploaded files)                           │
+│           └── {uuid}_file2.png                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+        </code></pre>
+      </div>
+
+      <h3>Request Flow</h3>
+      <div class="flow-diagram">
+        <div class="flow-step">
+          <span class="step-num">Step 1</span>
+          <span class="step-label">Browser</span>
+          <span class="step-detail">User action</span>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">
+          <span class="step-num">Step 2</span>
+          <span class="step-label">Next.js</span>
+          <span class="step-detail">:3000 proxy</span>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">
+          <span class="step-num">Step 3</span>
+          <span class="step-label">Flask</span>
+          <span class="step-detail">:5000 route</span>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">
+          <span class="step-num">Step 4</span>
+          <span class="step-label">Auth Middleware</span>
+          <span class="step-detail">JWT validation</span>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">
+          <span class="step-num">Step 5</span>
+          <span class="step-label">Supabase</span>
+          <span class="step-detail">DB query</span>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">
+          <span class="step-num">Step 6</span>
+          <span class="step-label">Response</span>
+          <span class="step-detail">JSON → UI</span>
+        </div>
+      </div>
+
+      <h3>Directory Structure</h3>
+      <div class="code-header"><span>Project Root</span></div>
+      <pre><code>portal/
+├── backend/
+│   ├── app.py                    # Flask app entry, blueprint registration
+│   ├── config.py                 # JWT, DB, upload config
+│   ├── supabase_client.py        # Supabase SDK initialization
+│   ├── .env                      # Environment variables (secrets)
+│   ├── requirements.txt          # Python dependencies
+│   ├── supabase_schema_v2.sql    # Database schema DDL
+│   ├── uploads/                  # Client file uploads (local FS)
+│   │   └── portal/{client_id}/   # Per-client upload directories
+│   └── routes/
+│       ├── auth.py               # Authentication & user management
+│       ├── clients.py            # Client CRUD operations
+│       ├── proposals.py          # Proposal lifecycle management
+│       ├── projects.py           # Project & phase management
+│       ├── invoices.py           # Invoice CRUD + payments
+│       ├── templates.py          # Template engine & document generation
+│       ├── documents_new.py      # Document CRUD (V2, active)
+│       ├── organization_settings.py  # Org & profile settings
+│       └── client_portal.py      # All client portal endpoints
+│
+├── frontend/
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── page.tsx          # Landing page
+│   │   │   ├── layout.tsx        # Root layout
+│   │   │   ├── login/            # Login page
+│   │   │   ├── register/         # Register page
+│   │   │   ├── dashboard/        # Admin pages (10 sections)
+│   │   │   │   ├── page.tsx            # Admin dashboard home
+│   │   │   │   ├── layout.tsx          # Sidebar navigation
+│   │   │   │   ├── clients/            # Client management
+│   │   │   │   ├── projects/           # Project management
+│   │   │   │   │   └── [id]/           # Project detail
+│   │   │   │   ├── proposals/          # Proposal management
+│   │   │   │   ├── templates/          # Template editor
+│   │   │   │   ├── documents/          # Document management
+│   │   │   │   ├── invoices/           # Invoice management
+│   │   │   │   ├── client-uploads/     # View client uploads
+│   │   │   │   ├── reports/            # Analytics
+│   │   │   │   └── settings/           # Organization settings
+│   │   │   └── portal/           # Client portal (6 pages)
+│   │   │       ├── page.tsx            # Portal dashboard
+│   │   │       ├── layout.tsx          # Portal sidebar nav
+│   │   │       ├── proposals/          # View/respond proposals
+│   │   │       ├── documents/          # View/sign documents
+│   │   │       ├── project/            # Progress tracking
+│   │   │       ├── invoices/           # View invoices
+│   │   │       └── uploads/            # Upload resources
+│   │   ├── lib/
+│   │   │   ├── api.ts            # API client + TypeScript interfaces
+│   │   │   ├── auth-context.tsx  # Auth state management
+│   │   │   ├── supabase.ts      # Supabase browser client
+│   │   │   └── utils.ts         # Utility functions
+│   │   └── components/           # Shared UI components
+│   └── next.config.js            # API proxy rewrites
+│
+└── docs/                         # This documentation
+    ├── index.html
+    ├── css/style.css
+    └── js/docs.js</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §4 — AUTHENTICATION SYSTEM
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="auth-system">
+      <h2>Authentication System</h2>
+      <p>Authentication is handled by Supabase Auth with ES256 JWT tokens. The system supports two roles: <code>admin</code> (agency staff) and <code>client</code> (invited clients).</p>
+
+      <h3>Auth Flow — Admin Registration</h3>
+      <div class="flow-diagram">
+        <div class="flow-step"><span class="step-num">1</span><span class="step-label">Register</span><span class="step-detail">email + password</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="step-num">2</span><span class="step-label">Supabase</span><span class="step-detail">sign_up()</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="step-num">3</span><span class="step-label">Create Org</span><span class="step-detail">organizations table</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="step-num">4</span><span class="step-label">Link User</span><span class="step-detail">org_users + profile</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="step-num">5</span><span class="step-label">Return JWT</span><span class="step-detail">access + refresh</span></div>
+      </div>
+
+      <h3>Auth Flow — Client Invitation</h3>
+      <div class="flow-diagram">
+        <div class="flow-step"><span class="step-num">1</span><span class="step-label">Admin</span><span class="step-detail">invites client</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="step-num">2</span><span class="step-label">Create User</span><span class="step-detail">admin.auth.create_user</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="step-num">3</span><span class="step-label">Set Metadata</span><span class="step-detail">role: 'client'</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="step-num">4</span><span class="step-label">Link Client</span><span class="step-detail">clients.user_id = id</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="step-num">5</span><span class="step-label">Add to Org</span><span class="step-detail">role: 'member'</span></div>
+      </div>
+
+      <h3>Token Validation</h3>
+      <div class="code-header"><span>supabase_auth_required decorator</span><button class="copy-btn">Copy</button></div>
+      <pre><code class="python">@wraps(f)
+def decorated(*args, **kwargs):
+    token = request.headers.get('Authorization', '').replace('Bearer ', '')
+    if not token:
+        return jsonify({'error': 'Missing token'}), 401
+    
+    # Validate against Supabase Auth API
+    headers = {
+        'Authorization': f'Bearer {token}',
+        'apikey': SUPABASE_KEY
+    }
+    resp = requests.get(f'{SUPABASE_URL}/auth/v1/user', headers=headers)
+    
+    if resp.status_code != 200:
+        return jsonify({'error': 'Invalid or expired token'}), 401
+    
+    request.supabase_user = SimpleNamespace(**resp.json())
+    return f(*args, **kwargs)</code></pre>
+
+      <h3>Frontend Auth State</h3>
+      <div class="code-header"><span>auth-context.tsx — Token Management</span><button class="copy-btn">Copy</button></div>
+      <pre><code class="typescript">// Auto-refresh on 401 response
+const fetchApi = async (url, options) => {
+  let response = await fetch(url, {
+    ...options,
+    headers: { 'Authorization': `Bearer ${token}`, ...options?.headers }
+  });
+  
+  if (response.status === 401) {
+    // Refresh token via Supabase
+    const { data } = await supabase.auth.refreshSession();
+    if (data?.session) {
+      localStorage.setItem('token', data.session.access_token);
+      // Retry with new token
+      response = await fetch(url, { ...options, headers: { 'Authorization': `Bearer ${data.session.access_token}` }});
+    }
+  }
+  return response;
+};</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §5 — DATA MODEL
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="data-model">
+      <h2>Data Model</h2>
+      <p>17 PostgreSQL tables with UUID primary keys, JSONB columns for flexible data, and Row-Level Security via Supabase.</p>
+
+      <h3>Entity Relationship Diagram</h3>
+      <div class="diagram-container">
+        <pre><code>
+┌──────────────┐       ┌──────────────────┐       ┌──────────────┐
+│  auth.users   │◄──────│  profiles         │       │ organizations │
+│  (Supabase)   │  1:1  │  id, role, name   │       │ id, name      │
+└───────┬───────┘       └──────────────────┘       │ owner_id      │
+        │                                           └──────┬───────┘
+        │                                                  │
+        │ 1:N ┌──────────────────┐                        │ 1:N
+        └────▶│ organization_users│◄───────────────────────┘
+              │ user_id, org_id   │
+              │ role              │
+              └──────────────────┘
+                                     
+┌──────────────┐  1:N   ┌──────────────────┐  1:N  ┌──────────────┐
+│ organizations │───────▶│  clients          │◄──────│  proposals   │
+│               │        │  id, name, email  │       │  id, title   │
+│               │        │  user_id (nullable)│      │  status      │
+│               │        │  portal_token     │       │  total_amount│
+│               │        │  status           │       │  public_token│
+│               │        └────────┬──────────┘       └──────┬───────┘
+│               │                 │                          │
+│               │  1:N            │ 1:N                      │ on accept
+│               │  ┌──────────────┴──────────┐              ▼
+│               ├─▶│  documents              │       ┌──────────────┐
+│               │  │  id, name, type, content│       │  projects    │
+│               │  │  status, client_id      │       │  id, name    │
+│               │  │  public_token           │       │  status      │
+│               │  └─────────────────────────┘       │  client_id   │
+│               │                                     └──────┬───────┘
+│               │  1:N  ┌────────────────────┐               │
+│               ├──────▶│  document_templates │               │ 1:N
+│               │       │  id, name, type     │        ┌──────┴──────┐
+│               │       │  content, variables │        │  phases      │
+│               │       └────────────────────┘        │  id, name    │
+│               │                                      │  order_index │
+│               │  1:N  ┌────────────────────┐        │  status      │
+│               └──────▶│  invoices           │        └──────┬──────┘
+│                       │  id, invoice_number │               │ 1:N
+│                       │  subtotal, total    │        ┌──────┴──────┐
+│                       │  tax_rate, currency │        │ milestones   │
+│                       │  client_id, status  │        │ id, title    │
+│                       └────────────────────┘        │ status       │
+│                                                      └─────────────┘
+└──────────────┘
+        </code></pre>
+      </div>
+
+      <h3>Core Tables Reference</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Table</th><th>PK</th><th>Key Columns</th><th>Relationships</th></tr></thead>
+          <tbody>
+            <tr><td><code>profiles</code></td><td>UUID (→auth.users)</td><td>email, name, role, phone, avatar_url</td><td>1:1 auth.users</td></tr>
+            <tr><td><code>organizations</code></td><td>UUID</td><td>name, logo_url, owner_id, settings JSONB</td><td>1:N clients, projects, templates</td></tr>
+            <tr><td><code>organization_users</code></td><td>UUID</td><td>organization_id, user_id, role</td><td>N:N org↔users</td></tr>
+            <tr><td><code>clients</code></td><td>UUID</td><td>name, email, phone, company, status, user_id, portal_token</td><td>N:1 organization, 1:N proposals/documents/invoices</td></tr>
+            <tr><td><code>document_templates</code></td><td>UUID</td><td>name, type, content, variables_schema JSONB, default_values JSONB</td><td>N:1 organization</td></tr>
+            <tr><td><code>proposals</code></td><td>UUID</td><td>title, content, total_amount, status, public_token</td><td>N:1 client, N:1 template</td></tr>
+            <tr><td><code>projects</code></td><td>UUID</td><td>name, description, status, budget, currency, portal_enabled</td><td>N:1 client, 1:N phases</td></tr>
+            <tr><td><code>phases</code></td><td>UUID</td><td>name, order_index, status</td><td>N:1 project, 1:N milestones</td></tr>
+            <tr><td><code>milestones</code></td><td>UUID</td><td>title, order_index, status, pre_production, development, delivery</td><td>N:1 phase</td></tr>
+            <tr><td><code>documents</code></td><td>UUID</td><td>name, type, content, status, signature_data JSONB, public_token</td><td>N:1 client, N:1 project</td></tr>
+            <tr><td><code>invoices</code></td><td>UUID</td><td>invoice_number, subtotal, tax_rate, tax_amount, total, currency, status</td><td>N:1 client, N:1 project</td></tr>
+            <tr><td><code>invoice_items</code></td><td>UUID</td><td>description, quantity, unit_price, amount</td><td>N:1 invoice</td></tr>
+            <tr><td><code>deliverables</code></td><td>UUID</td><td>name, type, file_url, status</td><td>N:1 project, N:1 milestone</td></tr>
+            <tr><td><code>strategy_calls</code></td><td>UUID</td><td>title, scheduled_at, meeting_url, status</td><td>N:1 project, N:1 client</td></tr>
+            <tr><td><code>competitor_analyses</code></td><td>UUID</td><td>title, analysis_date, summary</td><td>N:1 project</td></tr>
+            <tr><td><code>monthly_reports</code></td><td>UUID</td><td>title, period_start, period_end, metrics JSONB</td><td>N:1 project</td></tr>
+            <tr><td><code>files</code></td><td>UUID</td><td>storage_key, original_filename, mime_type, size</td><td>N:1 organization</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Status Enumerations</h3>
+      <div class="card-grid">
+        <div class="card">
+          <h4>Client Status</h4>
+          <p><code>lead</code> → <code>active</code> → <code>past</code></p>
+          <div class="card-footer"><span>Auto: active on proposal accept</span></div>
+        </div>
+        <div class="card">
+          <h4>Proposal Status</h4>
+          <p><code>draft</code> → <code>sent</code> → <code>viewed</code> → <code>accepted</code> | <code>rejected</code> | <code>expired</code></p>
+        </div>
+        <div class="card">
+          <h4>Project Status</h4>
+          <p><code>draft</code> → <code>active</code> → <code>paused</code> → <code>completed</code> | <code>cancelled</code></p>
+        </div>
+        <div class="card">
+          <h4>Document Status</h4>
+          <p><code>draft</code> → <code>sent</code> → <code>viewed</code> → <code>signed</code> | <code>approved</code> | <code>rejected</code></p>
+        </div>
+        <div class="card">
+          <h4>Invoice Status</h4>
+          <p><code>draft</code> → <code>sent</code> → <code>paid</code> | <code>overdue</code> | <code>cancelled</code></p>
+        </div>
+        <div class="card">
+          <h4>Milestone Status</h4>
+          <p><code>pending</code> → <code>in_progress</code> → <code>review</code> → <code>completed</code></p>
+        </div>
+      </div>
+
+      <h3>Document Types</h3>
+      <div class="callout callout-info">
+        <span class="callout-icon">ℹ️</span>
+        <span>The template engine supports 12 document types. Each type can have its own template with {{variable}} interpolation. All types flow through the same create → send → view/sign lifecycle.</span>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>#</th><th>Type Key</th><th>Description</th><th>Signable</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><code>welcome</code></td><td>Welcome packet / onboarding guide</td><td>No</td></tr>
+            <tr><td>2</td><td><code>agreement</code></td><td>Service agreement / contract</td><td>Yes ✍️</td></tr>
+            <tr><td>3</td><td><code>invoice</code></td><td>Invoice document (PDF-like)</td><td>No</td></tr>
+            <tr><td>4</td><td><code>proposal</code></td><td>Proposal document</td><td>No</td></tr>
+            <tr><td>5</td><td><code>strategy_call</code></td><td>Strategy call notes / agenda</td><td>No</td></tr>
+            <tr><td>6</td><td><code>project_timeline</code></td><td>Project timeline / milestones</td><td>No</td></tr>
+            <tr><td>7</td><td><code>deliverables</code></td><td>Deliverables list / fulfilment</td><td>No</td></tr>
+            <tr><td>8</td><td><code>content_guide</code></td><td>Content usage guidelines</td><td>No</td></tr>
+            <tr><td>9</td><td><code>monthly_report</code></td><td>Monthly performance report</td><td>No</td></tr>
+            <tr><td>10</td><td><code>competitor_analysis</code></td><td>Competitor analysis report</td><td>No</td></tr>
+            <tr><td>11</td><td><code>thank_you</code></td><td>Thank you / closing document</td><td>No</td></tr>
+            <tr><td>12</td><td><code>custom</code></td><td>Custom document type</td><td>No</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §6 — CLIENT PORTAL FLOW
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="client-portal">
+      <h2>Client Portal Flow</h2>
+      <p>The client portal is a separate UI at <code>/portal/*</code> that clients access after invitation. It provides a self-service experience for the entire client lifecycle.</p>
+
+      <h3>Complete Client Lifecycle</h3>
+      <div class="diagram-container">
+        <pre><code>
+  ADMIN SIDE                                           CLIENT SIDE
+  ─────────                                           ───────────
+  
+  1. Create Client                                    
+     └─ clients.create()                               
+         └─ status: 'lead'                             
+                                                       
+  2. Create Proposal                                  
+     └─ proposals.create()                             
+         └─ status: 'draft'                            
+                                                       
+  3. Send Proposal ────────────────────────────────▶  4. View Proposal
+     └─ proposals.send()                                  └─ portal/proposals
+         └─ status: 'sent'                                    └─ Review content & amount
+                                                       
+                                                      5. Accept/Reject Proposal
+                                                          └─ portal/proposals/{id}/respond
+                                                          
+  ◄──── On Accept ─────────────────────────────────       └─ action: 'accept'
+  
+  6. Auto-Create Project                              
+     └─ 4 phases (Onboarding, Strategy,               
+        Fulfilment, Reporting)                        7. View Project Progress
+     └─ 3 onboarding milestones                          └─ portal/project
+     └─ client.status → 'active'                             └─ Phases, milestones, %
+                                                       
+  8. Invite Client to Portal                          
+     └─ auth/client-invite                             
+         └─ Creates Supabase user                     9. Client Logs In
+         └─ Links to client record                        └─ portal/login
+                                                           └─ Sees dashboard
+  
+  10. Send Documents ──────────────────────────────▶  11. View & Sign Documents
+      └─ All 12 types                                     └─ portal/documents
+          └─ status: 'sent'                                   └─ Auto-mark 'viewed'
+                                                               └─ Sign agreements
+  
+  12. Create Invoice ──────────────────────────────▶  13. View Invoices
+      └─ subtotal, tax, discount                          └─ portal/invoices
+          └─ Auto: INV-2026-0001                              └─ See amounts, status
+  
+                                                      14. Upload Resources
+                                                          └─ portal/uploads
+                                                              └─ Drag & drop files
+  
+  15. View Client Uploads ◄─────────────────────────
+      └─ dashboard/client-uploads
+          └─ Download client files
+        </code></pre>
+      </div>
+
+      <h3>Portal Page Mapping</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Portal Page</th><th>Route</th><th>API Endpoint</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Dashboard</td><td><code>/portal</code></td><td><code>GET /api/portal/dashboard</code></td><td>Client stats, project summary, action items</td></tr>
+            <tr><td>Proposals</td><td><code>/portal/proposals</code></td><td><code>GET /api/portal/proposals</code></td><td>View and respond to proposals</td></tr>
+            <tr><td>Documents</td><td><code>/portal/documents</code></td><td><code>GET /api/portal/documents</code></td><td>View, sign, and download documents</td></tr>
+            <tr><td>Project</td><td><code>/portal/project</code></td><td><code>GET /api/portal/project</code></td><td>Project phases and milestone progress</td></tr>
+            <tr><td>Invoices</td><td><code>/portal/invoices</code></td><td><code>GET /api/portal/invoices</code></td><td>View invoices and payment status</td></tr>
+            <tr><td>Uploads</td><td><code>/portal/uploads</code></td><td><code>GET/POST /api/portal/uploads</code></td><td>Upload branded assets, logos, content</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §7 — API REFERENCE — AUTH
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="api-auth">
+      <h2>API Reference — Authentication</h2>
+      <p>Base URL: <code>/api/auth</code> &nbsp;|&nbsp; Blueprint: <code>auth_bp</code></p>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method method-post">POST</span>
+          <span class="endpoint-path">/api/auth/register</span>
+          <span class="endpoint-desc">Register new admin + organization</span>
+          <span class="endpoint-auth">Public</span>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="endpoint-body">
+          <h4>Request Body</h4>
+          <div class="code-header"><span>JSON</span><button class="copy-btn">Copy</button></div>
+          <pre><code class="json">{
+  "email": "admin@company.com",
+  "password": "SecurePass123!",
+  "name": "John Admin",
+  "organization_name": "AstroTechnologies"
+}</code></pre>
+          <h4>Response — 201 Created</h4>
+          <div class="code-header"><span>JSON</span><button class="copy-btn">Copy</button></div>
+          <pre><code class="json">{
+  "message": "Registration successful",
+  "user": { "id": "uuid", "email": "admin@company.com", "name": "John Admin", "role": "admin" },
+  "organization": { "id": "uuid", "name": "AstroTechnologies" },
+  "access_token": "eyJhbG...",
+  "refresh_token": "abc123..."
+}</code></pre>
+          <h4>Error Codes</h4>
+          <div class="table-wrapper"><table>
+            <thead><tr><th>Code</th><th>Reason</th></tr></thead>
+            <tbody>
+              <tr><td>400</td><td>Missing required fields</td></tr>
+              <tr><td>500</td><td>Email already taken / server error</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method method-post">POST</span>
+          <span class="endpoint-path">/api/auth/login</span>
+          <span class="endpoint-desc">Login (admin or client)</span>
+          <span class="endpoint-auth">Public</span>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="endpoint-body">
+          <h4>Request Body</h4>
+          <pre><code class="json">{
+  "email": "user@example.com",
+  "password": "password123"
+}</code></pre>
+          <h4>Response — 200 OK</h4>
+          <pre><code class="json">{
+  "message": "Login successful",
+  "user": { "id": "uuid", "email": "...", "name": "...", "role": "admin|client" },
+  "organization": { "id": "uuid", "name": "..." },
+  "access_token": "eyJhbG...",
+  "refresh_token": "abc123...",
+  "client": { "id": "uuid", "name": "..." }   // only for client role
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method method-post">POST</span>
+          <span class="endpoint-path">/api/auth/refresh</span>
+          <span class="endpoint-desc">Refresh access token</span>
+          <span class="endpoint-auth">Public</span>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="endpoint-body">
+          <h4>Request Body</h4>
+          <pre><code class="json">{ "refresh_token": "abc123..." }</code></pre>
+          <h4>Response — 200 OK</h4>
+          <pre><code class="json">{ "access_token": "eyJhbG...", "refresh_token": "new_token..." }</code></pre>
+        </div>
+      </div>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method method-get">GET</span>
+          <span class="endpoint-path">/api/auth/me</span>
+          <span class="endpoint-desc">Get current user profile</span>
+          <span class="endpoint-auth">Bearer Token</span>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="endpoint-body">
+          <h4>Response — 200 OK</h4>
+          <pre><code class="json">{
+  "user": { "id": "uuid", "email": "...", "name": "...", "role": "admin" },
+  "organization": { "id": "uuid", "name": "AstroTechnologies" },
+  "org_role": "owner",
+  "client": null
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method method-post">POST</span>
+          <span class="endpoint-path">/api/auth/client-invite</span>
+          <span class="endpoint-desc">Invite client to portal</span>
+          <span class="endpoint-auth">Admin Only</span>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="endpoint-body">
+          <h4>Request Body</h4>
+          <pre><code class="json">{
+  "client_id": "7acd0744-2aab-4b96-9a05-70b9591ccf5b",
+  "password": "ClientPass123!"
+}</code></pre>
+          <h4>Side Effects</h4>
+          <ul style="color:var(--text-secondary);font-size:13px;padding-left:20px;">
+            <li>Creates Supabase auth user (email auto-confirmed)</li>
+            <li>Sets user_metadata.role = 'client'</li>
+            <li>Links client record: clients.user_id = new_user.id</li>
+            <li>Adds to organization_users with role 'member'</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method method-post">POST</span>
+          <span class="endpoint-path">/api/auth/logout</span>
+          <span class="endpoint-desc">Logout / invalidate session</span>
+          <span class="endpoint-auth">Bearer Token</span>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="endpoint-body">
+          <h4>Response — 200 OK</h4>
+          <pre><code class="json">{ "message": "Logged out successfully" }</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §8 — API REFERENCE — CLIENTS
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="api-clients">
+      <h2>API Reference — Clients</h2>
+      <p>Base URL: <code>/api/clients</code> &nbsp;|&nbsp; All endpoints require admin auth.</p>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method method-get">GET</span>
+          <span class="endpoint-path">/api/clients/</span>
+          <span class="endpoint-desc">List all clients</span>
+          <span class="endpoint-auth">Admin</span>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="endpoint-body">
+          <h4>Query Parameters</h4>
+          <div class="table-wrapper"><table>
+            <thead><tr><th>Param</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody><tr><td><code>status</code></td><td>string</td><td>Filter by: lead, active, past</td></tr></tbody>
+          </table></div>
+          <h4>Response — 200</h4>
+          <pre><code class="json">{
+  "clients": [
+    { "id": "uuid", "name": "Jane Smith", "email": "jane@test.com", "status": "active", "company": null, "phone": null }
+  ]
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method method-post">POST</span>
+          <span class="endpoint-path">/api/clients/</span>
+          <span class="endpoint-desc">Create client</span>
+          <span class="endpoint-auth">Admin</span>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="endpoint-body">
+          <pre><code class="json">{
+  "name": "Jane Smith",          // required
+  "email": "jane@test.com",      // required
+  "phone": "+27123456789",       // optional
+  "company": "Acme Corp",        // optional
+  "status": "lead"               // optional, default: "lead"
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method method-get">GET</span>
+          <span class="endpoint-path">/api/clients/{client_id}</span>
+          <span class="endpoint-desc">Get client details</span>
+          <span class="endpoint-auth">Admin / Own Client</span>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="endpoint-body"><p>Returns full client object including notes, address, portal_token.</p></div>
+      </div>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method method-put">PUT</span>
+          <span class="endpoint-path">/api/clients/{client_id}</span>
+          <span class="endpoint-desc">Update client</span>
+          <span class="endpoint-auth">Admin</span>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="endpoint-body"><p>Accepts any combination of: name, email, phone, company, status, notes, address.</p></div>
+      </div>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header">
+          <span class="method method-delete">DELETE</span>
+          <span class="endpoint-path">/api/clients/{client_id}</span>
+          <span class="endpoint-desc">Delete client</span>
+          <span class="endpoint-auth">Admin</span>
+          <span class="chevron">▶</span>
+        </div>
+        <div class="endpoint-body">
+          <div class="callout callout-warning"><span class="callout-icon">⚠️</span><span>Hard delete. Ensure no linked proposals/projects before deletion.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §9 — API REFERENCE — TEMPLATES
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="api-templates">
+      <h2>API Reference — Templates</h2>
+      <p>Base URL: <code>/api/templates</code> &nbsp;|&nbsp; 12 document types with variable interpolation.</p>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/templates/</span><span class="endpoint-desc">List templates</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Query: <code>?type=welcome&active=true</code>. Returns templates for the user's organization.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/templates/</span><span class="endpoint-desc">Create template</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body">
+          <pre><code class="json">{
+  "name": "Welcome Packet",
+  "type": "welcome",
+  "content": "# Welcome {{client_name}}!\n\nWe're thrilled to have you at {{company_name}}...",
+  "description": "Default welcome document",
+  "variables_schema": { "client_name": "string", "company_name": "string" },
+  "default_values": { "company_name": "AstroTechnologies" },
+  "theme": { "primaryColor": "#58a6ff" }
+}</code></pre>
+        </div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/templates/{id}/generate</span><span class="endpoint-desc">Generate document from template</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body">
+          <pre><code class="json">{
+  "client_id": "uuid",
+  "project_id": "uuid",        // optional
+  "variables": { "client_name": "Jane Smith", "project_name": "Q1 Campaign" }
+}</code></pre>
+          <p>Creates a document with template content resolved ({{variables}} replaced).</p>
+        </div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/templates/{id}/preview</span><span class="endpoint-desc">Preview rendered template</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Returns rendered_content with variables applied, without saving.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/templates/{id}/duplicate</span><span class="endpoint-desc">Duplicate template</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Creates a copy with name suffix " (Copy)". Optional: <code>{ "name": "New Name" }</code>.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/templates/types</span><span class="endpoint-desc">List template types</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Returns array of 12 type objects with id, name, and description.</p></div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §10 — API REFERENCE — DOCUMENTS
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="api-documents">
+      <h2>API Reference — Documents</h2>
+      <p>Base URL: <code>/api/documents</code> &nbsp;|&nbsp; Supports 12 types with send/view/sign lifecycle.</p>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/documents/</span><span class="endpoint-desc">List documents</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Query: <code>?type=agreement&client_id=uuid&project_id=uuid&status=sent</code>. Includes client name and project name joins.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/documents/</span><span class="endpoint-desc">Create document</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body">
+          <pre><code class="json">{
+  "name": "Service Agreement - Jane Smith",
+  "type": "agreement",
+  "content": "# Service Agreement\n\nThis agreement between...",
+  "client_id": "uuid",          // required
+  "project_id": "uuid",         // optional
+  "template_id": "uuid",        // optional
+  "variables": {}                // optional
+}</code></pre>
+        </div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/documents/{id}/send</span><span class="endpoint-desc">Send to client</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body">
+          <p>Sets status to 'sent', records sent_at timestamp. Generates public_token for public access link.</p>
+          <div class="callout callout-info"><span class="callout-icon">ℹ️</span><span>After sending, the document appears in the client's portal Documents page.</span></div>
+        </div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/documents/public/{token}</span><span class="endpoint-desc">Public document view</span><span class="endpoint-auth">Public</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>No auth required. Auto-marks as 'viewed'. Returns document content for rendering.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/documents/public/{token}/sign</span><span class="endpoint-desc">Sign document</span><span class="endpoint-auth">Public</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body">
+          <pre><code class="json">{
+  "name": "Jane Smith",
+  "signature": "data:image/png;base64,..."
+}</code></pre>
+          <p>Records signature_data JSONB with name, signature, signed_at, IP address.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §11 — API REFERENCE — PROPOSALS
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="api-proposals">
+      <h2>API Reference — Proposals</h2>
+      <p>Base URL: <code>/api/proposals</code> &nbsp;|&nbsp; Lifecycle: draft → sent → accepted/rejected.</p>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/proposals/</span><span class="endpoint-desc">Create proposal</span><span class="endpoint-auth">Admin</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body">
+          <pre><code class="json">{
+  "client_id": "uuid",
+  "template_id": "uuid",
+  "variables": { "client_name": "Jane", "package": "Premium" },
+  "total_amount": 15000,
+  "title": "Q1 2026 Campaign Proposal"
+}</code></pre>
+        </div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/proposals/{id}/send</span><span class="endpoint-desc">Send proposal to client</span><span class="endpoint-auth">Admin</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Generates public_token, sets status to 'sent'. Returns public_url for sharing.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/proposals/public/{token}/respond</span><span class="endpoint-desc">Accept or reject proposal</span><span class="endpoint-auth">Public</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body">
+          <pre><code class="json">{ "action": "accept" }</code></pre>
+          <div class="callout callout-success"><span class="callout-icon">✅</span><span><strong>On Accept:</strong> Auto-creates project with 4 phases (Onboarding→active, Strategy, Fulfilment, Reporting→pending) and 3 onboarding milestones. Client status set to 'active'.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §12 — API REFERENCE — PROJECTS
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="api-projects">
+      <h2>API Reference — Projects</h2>
+      <p>Base URL: <code>/api/projects</code> &nbsp;|&nbsp; Created automatically on proposal acceptance.</p>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/projects/</span><span class="endpoint-desc">List projects</span><span class="endpoint-auth">Admin / Client (own)</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Query: <code>?status=active</code>. Includes client name join. Clients only see their own projects.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/projects/{id}</span><span class="endpoint-desc">Get project with phases + milestones</span><span class="endpoint-auth">Admin / Client (own)</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Returns full project with nested phases, milestones, active_phase, and client data.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-put">PUT</span><span class="endpoint-path">/api/projects/{id}/status</span><span class="endpoint-desc">Update project status</span><span class="endpoint-auth">Admin</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><pre><code class="json">{ "status": "active" | "paused" | "completed" }</code></pre></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/projects/{id}/client-view</span><span class="endpoint-desc">Simplified client progress view</span><span class="endpoint-auth">Admin / Client</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Returns project_name, status, current_phase, current_action, and simplified phases array.</p></div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §13 — API REFERENCE — INVOICES
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="api-invoices">
+      <h2>API Reference — Invoices</h2>
+      <p>Base URL: <code>/api/invoices</code> &nbsp;|&nbsp; V2 schema with subtotal/tax/discount/total.</p>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/invoices/</span><span class="endpoint-desc">Create invoice</span><span class="endpoint-auth">Admin</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body">
+          <pre><code class="json">{
+  "project_id": "uuid",              // required — client auto-derived
+  "subtotal": 15000.00,              // required
+  "tax_rate": 15.0,                  // optional, default: 0
+  "discount_amount": 500.00,         // optional, default: 0
+  "currency": "ZAR",                 // optional, default: "ZAR"
+  "due_days": 14                     // optional, default: 14
+}</code></pre>
+          <h4>Auto-Computed Fields</h4>
+          <div class="table-wrapper"><table>
+            <thead><tr><th>Field</th><th>Formula</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>tax_amount</td><td>subtotal × (tax_rate / 100)</td><td>15000 × 0.15 = 2250</td></tr>
+              <tr><td>total</td><td>subtotal + tax_amount - discount_amount</td><td>15000 + 2250 - 500 = 16750</td></tr>
+              <tr><td>invoice_number</td><td>DB function: INV-YYYY-NNNN</td><td>INV-2026-0001</td></tr>
+              <tr><td>issue_date</td><td>today()</td><td>2026-02-08</td></tr>
+              <tr><td>due_date</td><td>today + due_days</td><td>2026-02-22</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/invoices/{id}/pay</span><span class="endpoint-desc">Mark as paid</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Sets status='paid', records paid_at timestamp.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/invoices/{id}/cancel</span><span class="endpoint-desc">Cancel invoice</span><span class="endpoint-auth">Admin</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Sets status='cancelled'. Only non-paid invoices can be cancelled.</p></div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §14 — API REFERENCE — PORTAL
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="api-portal">
+      <h2>API Reference — Client Portal</h2>
+      <p>Base URL: <code>/api/portal</code> &nbsp;|&nbsp; 16 endpoints for client self-service.</p>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">🔑</span>
+        <span>Portal endpoints use <code>portal_auth_required</code> which validates the Bearer JWT token's <code>sub</code> claim to identify the client. The client must have a linked <code>clients.user_id</code> record.</span>
+      </div>
+
+      <h3>Dashboard</h3>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/portal/dashboard</span><span class="endpoint-desc">Client dashboard with stats</span><span class="endpoint-auth">Portal Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body">
+          <pre><code class="json">{
+  "client": { "id": "uuid", "name": "Jane Smith", "email": "jane@test.com" },
+  "project": { "id": "uuid", "name": "Q1 Campaign", "status": "active", "progress": 25, "active_phase": "Onboarding" },
+  "stats": {
+    "total_proposals": 1,
+    "pending_proposals": 0,
+    "total_documents": 5,
+    "pending_documents": 2,
+    "signed_documents": 1,
+    "total_invoices": 2,
+    "unpaid_invoices": 1,
+    "paid_invoices": 1,
+    "uploads": 3
+  }
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>Proposals</h3>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/portal/proposals</span><span class="endpoint-desc">List client's proposals</span><span class="endpoint-auth">Portal Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Returns all proposals where client_id matches. Includes title, status, total_amount, content.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/portal/proposals/{id}/respond</span><span class="endpoint-desc">Accept/reject from portal</span><span class="endpoint-auth">Portal Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><pre><code class="json">{ "action": "accept" | "reject" }</code></pre></div>
+      </div>
+
+      <h3>Documents</h3>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/portal/documents</span><span class="endpoint-desc">List sent documents</span><span class="endpoint-auth">Portal Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Returns non-draft documents for the client. Filters: status IN ('sent', 'viewed', 'signed', 'approved', 'rejected').</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/portal/documents/{id}/sign</span><span class="endpoint-desc">Sign document from portal</span><span class="endpoint-auth">Portal Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><pre><code class="json">{ "name": "Jane Smith", "signature": "data:image/png;base64,..." }</code></pre></div>
+      </div>
+
+      <h3>Invoices & Uploads</h3>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/portal/invoices</span><span class="endpoint-desc">List client invoices</span><span class="endpoint-auth">Portal Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Queries by: direct client_id match OR project_ids owned by client. Deduplicates results.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-post">POST</span><span class="endpoint-path">/api/portal/uploads</span><span class="endpoint-desc">Upload file to portal</span><span class="endpoint-auth">Portal Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body">
+          <p>Multipart form: <code>file</code> (binary), <code>category</code> (logo|brand|content|document|image|video|other), <code>notes</code> (text).</p>
+          <p>Max 16MB. Stored in <code>backend/uploads/portal/{client_id}/</code> with metadata in <code>_catalog.json</code>.</p>
+        </div>
+      </div>
+
+      <h3>Admin Upload Access</h3>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/portal/admin/uploads/{client_id}</span><span class="endpoint-desc">Admin: list client files</span><span class="endpoint-auth">Admin</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Admin-only. Reads the client's _catalog.json and returns file list with metadata.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/portal/admin/uploads/{client_id}/{file_id}/download</span><span class="endpoint-desc">Admin: download file</span><span class="endpoint-auth">Admin</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Returns binary file with Content-Disposition: attachment header.</p></div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §15 — API REFERENCE — ORGANIZATION
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="api-org">
+      <h2>API Reference — Organization</h2>
+      <p>Base URL: <code>/api/organization</code> &nbsp;|&nbsp; Settings and profile management.</p>
+
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/organization/</span><span class="endpoint-desc">Get org details + stats</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body">
+          <pre><code class="json">{
+  "organization": { "id": "uuid", "name": "AstroTechnologies" },
+  "role": "owner",
+  "stats": { "members": 2, "clients": 5, "projects": 3 }
+}</code></pre>
+        </div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-put">PUT</span><span class="endpoint-path">/api/organization/</span><span class="endpoint-desc">Update organization</span><span class="endpoint-auth">Admin/Owner</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><pre><code class="json">{ "name": "New Company Name" }</code></pre></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-get">GET</span><span class="endpoint-path">/api/organization/profile</span><span class="endpoint-desc">Get user profile</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><p>Returns name, phone, company_name, avatar_url from profiles table.</p></div>
+      </div>
+      <div class="endpoint-block">
+        <div class="endpoint-header"><span class="method method-put">PUT</span><span class="endpoint-path">/api/organization/profile</span><span class="endpoint-desc">Update user profile</span><span class="endpoint-auth">Auth</span><span class="chevron">▶</span></div>
+        <div class="endpoint-body"><pre><code class="json">{ "name": "Jane", "phone": "+27...", "company_name": "Acme", "avatar_url": "https://..." }</code></pre></div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §16 — TEST CASES
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="test-cases">
+      <h2>Test Cases</h2>
+      <p>Comprehensive test suites covering authentication, CRUD operations, portal flows, and edge cases. Written in pytest-style with HTTP assertions.</p>
+
+      <!-- Auth Test Suite -->
+      <div class="test-suite">
+        <div class="test-suite-header">🔐 AUTH — Authentication & Authorization (12 tests)</div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-001: Register new admin with valid credentials</div><div class="test-detail">POST /api/auth/register → 201 • Returns access_token, user.role='admin', organization created</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-002: Register with duplicate email returns error</div><div class="test-detail">POST /api/auth/register (existing email) → 500 • Error: email already registered</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-003: Register with missing fields returns 400</div><div class="test-detail">POST /api/auth/register (no password) → 400 • Error: missing required fields</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-004: Login as admin returns JWT + org</div><div class="test-detail">POST /api/auth/login → 200 • access_token present, user.role='admin', organization present</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-005: Login as client returns JWT + client record</div><div class="test-detail">POST /api/auth/login (client email) → 200 • client object in response, role='client'</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-006: Login with wrong password returns 401</div><div class="test-detail">POST /api/auth/login (bad pass) → 401 • Error: Invalid email or password</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-007: GET /me with valid token returns profile</div><div class="test-detail">GET /api/auth/me → 200 • user.id matches JWT sub claim, org present</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-008: GET /me with expired token returns 401</div><div class="test-detail">GET /api/auth/me (expired JWT) → 401 • Error: Invalid or expired token</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-009: Invite client creates Supabase user + links record</div><div class="test-detail">POST /api/auth/client-invite → 201 • clients.user_id set, org_users entry created</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-010: Invite client that already has user_id returns 409</div><div class="test-detail">POST /api/auth/client-invite (already invited) → 409 • Error: already has portal access</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-011: Client cannot invite other clients (403)</div><div class="test-detail">POST /api/auth/client-invite (client token) → 403 • Error: Admin access required</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-AUTH-012: Token refresh returns new access_token</div><div class="test-detail">POST /api/auth/refresh → 200 • New access_token + refresh_token returned</div></div></div>
+      </div>
+
+      <!-- Client CRUD Test Suite -->
+      <div class="test-suite">
+        <div class="test-suite-header">👥 CLIENTS — CRUD Operations (8 tests)</div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-CLI-001: Create client with required fields</div><div class="test-detail">POST /api/clients/ {name, email} → 201 • status defaults to 'lead', org_id auto-set</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-CLI-002: Create client without name returns 400</div><div class="test-detail">POST /api/clients/ {email only} → 400 • Error: Name and email required</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-CLI-003: List clients filtered by status</div><div class="test-detail">GET /api/clients/?status=active → 200 • Only active clients returned</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-CLI-004: Get single client by ID</div><div class="test-detail">GET /api/clients/{id} → 200 • Full client object with portal_token</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-CLI-005: Update client email and company</div><div class="test-detail">PUT /api/clients/{id} {email, company} → 200 • Fields updated, others unchanged</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-CLI-006: Client user cannot access other client's data</div><div class="test-detail">GET /api/clients/{other_id} (client token) → 403 • Error: Access denied</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-CLI-007: Delete client removes record</div><div class="test-detail">DELETE /api/clients/{id} → 200 • Subsequent GET returns 404</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-CLI-008: Client cannot delete themselves</div><div class="test-detail">DELETE /api/clients/{own_id} (client token) → 403 • Admin access required</div></div></div>
+      </div>
+
+      <!-- Proposal Lifecycle Test Suite -->
+      <div class="test-suite">
+        <div class="test-suite-header">📋 PROPOSALS — Full Lifecycle (10 tests)</div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-PROP-001: Create proposal from template with variables</div><div class="test-detail">POST /api/proposals/ {client_id, template_id, variables} → 201 • Content has variables resolved</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-PROP-002: Send proposal generates public_token</div><div class="test-detail">POST /api/proposals/{id}/send → 200 • status='sent', public_token not null</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-PROP-003: Public view shows limited fields only</div><div class="test-detail">GET /api/proposals/public/{token} → 200 • Only id, status, content, total_amount, client_name</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-PROP-004: Accept proposal creates project + 4 phases</div><div class="test-detail">POST /api/proposals/public/{token}/respond {action:'accept'} → 200 • project created, 4 phases, 3 milestones</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-PROP-005: Accept sets Onboarding phase active, others pending</div><div class="test-detail">Verify: phases[0].status='active', phases[1..3].status='pending'</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-PROP-006: Accept flips client.status from 'lead' to 'active'</div><div class="test-detail">GET /api/clients/{id} after accept → status='active'</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-PROP-007: Reject proposal keeps client as 'lead'</div><div class="test-detail">POST respond {action:'reject'} → 200 • proposal.status='rejected', no project created</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-PROP-008: Cannot respond to already-accepted proposal</div><div class="test-detail">POST respond (already accepted) → 400 • Error: already been responded to</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-PROP-009: Client can view own proposals in portal</div><div class="test-detail">GET /api/portal/proposals (client JWT) → 200 • proposals array not empty</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-PROP-010: Client cannot see other client's proposals</div><div class="test-detail">Proposals filtered by client_id from JWT sub → only own data returned</div></div></div>
+      </div>
+
+      <!-- Document Test Suite -->
+      <div class="test-suite">
+        <div class="test-suite-header">📄 DOCUMENTS — Send & Sign Flow (10 tests)</div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-DOC-001: Create document with all 12 types succeeds</div><div class="test-detail">POST /api/documents/ (each type) → 201 • All types accepted by backend</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-DOC-002: Send document sets status='sent' + generates public_token</div><div class="test-detail">POST /api/documents/{id}/send → 200 • sent_at timestamp set, public_token present</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-DOC-003: Sent documents appear in client portal</div><div class="test-detail">GET /api/portal/documents → 200 • Documents with status 'sent' included</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-DOC-004: Draft documents hidden from portal</div><div class="test-detail">GET /api/portal/documents → 200 • status='draft' documents NOT in response</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-DOC-005: Viewing document auto-marks as 'viewed'</div><div class="test-detail">GET /api/portal/documents/{id} → 200 • status changes from 'sent' to 'viewed'</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-DOC-006: Sign document with signature data</div><div class="test-detail">POST /api/portal/documents/{id}/sign {name, signature} → 200 • status='signed', signature_data JSONB set</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-DOC-007: Public document view works without auth</div><div class="test-detail">GET /api/documents/public/{token} → 200 • No Bearer token needed</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-DOC-008: Generate document from template resolves {{variables}}</div><div class="test-detail">POST /api/templates/{id}/generate {variables} → 201 • Content has placeholders replaced</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-DOC-009: Delete document removes it from listing</div><div class="test-detail">DELETE /api/documents/{id} → 200 • GET /api/documents/ no longer includes it</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-DOC-010: Client receives all document types (welcome through thank_you)</div><div class="test-detail">Send 12 docs (one per type) → Portal shows all 12 with correct type labels</div></div></div>
+      </div>
+
+      <!-- Invoice Test Suite -->
+      <div class="test-suite">
+        <div class="test-suite-header">💰 INVOICES — V2 Schema & Tax Computation (9 tests)</div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-INV-001: Create invoice computes tax_amount and total</div><div class="test-detail">POST /api/invoices/ {subtotal:10000, tax_rate:15} → 201 • tax_amount=1500, total=11500</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-INV-002: Create invoice applies discount</div><div class="test-detail">POST {subtotal:10000, tax_rate:15, discount_amount:500} → total=11000</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-INV-003: Auto-generates INV-YYYY-NNNN invoice_number</div><div class="test-detail">Verify invoice_number matches pattern /^INV-\\d{4}-\\d{4}$/</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-INV-004: client_id auto-derived from project</div><div class="test-detail">POST {project_id} (no client_id) → 201 • invoice.client_id = project.client_id</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-INV-005: Default currency is ZAR</div><div class="test-detail">POST {subtotal:5000} (no currency) → 201 • currency='ZAR'</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-INV-006: Invoice visible in client portal</div><div class="test-detail">GET /api/portal/invoices (client JWT) → 200 • Created invoice appears</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-INV-007: Mark paid sets paid_at timestamp</div><div class="test-detail">POST /api/invoices/{id}/pay → 200 • status='paid', paid_at not null</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-INV-008: Cannot pay already-paid invoice</div><div class="test-detail">POST /api/invoices/{id}/pay (already paid) → 400 • Error: Invoice already paid</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-INV-009: Cancel non-paid invoice succeeds</div><div class="test-detail">POST /api/invoices/{id}/cancel → 200 • status='cancelled'</div></div></div>
+      </div>
+
+      <!-- Portal End-to-End Test Suite -->
+      <div class="test-suite">
+        <div class="test-suite-header">🌐 PORTAL — End-to-End Client Journey (12 tests)</div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-001: Full lifecycle — lead → invite → login → dashboard</div><div class="test-detail">Create client → invite → login → GET /api/portal/dashboard → 200 with stats</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-002: Dashboard returns correct proposal stats</div><div class="test-detail">Create + send 2 proposals → dashboard.stats.total_proposals=2, pending=2</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-003: Accept proposal via portal creates project</div><div class="test-detail">POST /api/portal/proposals/{id}/respond → project in dashboard response</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-004: Project page shows phases with progress</div><div class="test-detail">GET /api/portal/project → 4 phases, progress > 0</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-005: All 12 doc types appear in portal after send</div><div class="test-detail">Create + send each type → GET /api/portal/documents → all 12 present</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-006: Invoice with tax shows in portal with correct total</div><div class="test-detail">Create invoice (subtotal=10000, tax=15%) → portal shows total=11500</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-007: File upload from portal stores on disk</div><div class="test-detail">POST /api/portal/uploads (multipart) → 200 • File exists in uploads/portal/{client_id}/</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-008: Admin can view client uploads</div><div class="test-detail">GET /api/portal/admin/uploads/{client_id} (admin JWT) → 200 • uploads[] not empty</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-009: Admin can download client file</div><div class="test-detail">GET /api/portal/admin/uploads/{cid}/{fid}/download → 200 • Content-Disposition: attachment</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-010: Client cannot access admin upload endpoints</div><div class="test-detail">GET /api/portal/admin/uploads/{cid} (client JWT) → 403 • Admin access required</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-011: Unauthenticated request to portal returns 401</div><div class="test-detail">GET /api/portal/dashboard (no token) → 401 • Missing token</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-E2E-012: Client A cannot see Client B's data</div><div class="test-detail">Login as Client A → GET portal/documents → only Client A's docs returned</div></div></div>
+      </div>
+
+      <!-- Template Engine Test Suite -->
+      <div class="test-suite">
+        <div class="test-suite-header">📝 TEMPLATES — Engine & Generation (7 tests)</div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-TPL-001: Preview resolves {{variable}} placeholders</div><div class="test-detail">POST /api/templates/{id}/preview {variables} → rendered_content has values substituted</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-TPL-002: Generate creates document with resolved content</div><div class="test-detail">POST /api/templates/{id}/generate → 201 • New document in documents table</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-TPL-003: Duplicate creates independent copy</div><div class="test-detail">POST /api/templates/{id}/duplicate → 201 • name ends with '(Copy)', different id</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-TPL-004: Delete soft-deletes (is_active=false)</div><div class="test-detail">DELETE /api/templates/{id} → 200 • GET with ?active=false still returns it</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-TPL-005: List filtered by type returns correct subset</div><div class="test-detail">GET /api/templates/?type=welcome → 200 • All results have type='welcome'</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-TPL-006: Default values merge with provided variables</div><div class="test-detail">Template default_values + request variables → merged, request takes precedence</div></div></div>
+        <div class="test-case test-pass"><span class="test-icon">✅</span><div><div class="test-name">TC-TPL-007: Get template types returns 12 entries</div><div class="test-detail">GET /api/templates/types → 200 • types.length === 12</div></div></div>
+      </div>
+
+      <h3>Test Execution Example</h3>
+      <div class="code-header"><span>curl — Example Test Commands</span><button class="copy-btn">Copy</button></div>
+      <pre><code class="bash"># TC-AUTH-004: Login as admin
+curl -X POST http://localhost:5000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"admin@company.com","password":"SecurePass123!"}'
+# Expected: 200, body contains access_token
+
+# TC-PROP-004: Accept proposal (creates project)
+curl -X POST http://localhost:5000/api/proposals/public/{token}/respond \
+  -H "Content-Type: application/json" \
+  -d '{"action":"accept"}'
+# Expected: 200, body contains project object with 4 phases
+
+# TC-INV-001: Create invoice with tax
+curl -X POST http://localhost:5000/api/invoices/ \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {admin_token}" \
+  -d '{"project_id":"uuid","subtotal":10000,"tax_rate":15}'
+# Expected: 201, tax_amount=1500, total=11500
+
+# TC-E2E-007: Upload file from portal
+curl -X POST http://localhost:5000/api/portal/uploads \
+  -H "Authorization: Bearer {client_token}" \
+  -F "file=@logo.png" \
+  -F "category=logo" \
+  -F "notes=Brand logo v2"
+# Expected: 200, upload object with id, filename, storage_name</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §17 — ERROR HANDLING
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="error-handling">
+      <h2>Error Handling</h2>
+      <p>All API endpoints return consistent JSON error responses with appropriate HTTP status codes.</p>
+
+      <h3>Standard Error Response Format</h3>
+      <pre><code class="json">{
+  "error": "Human-readable error message"
+}</code></pre>
+
+      <h3>HTTP Status Code Reference</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Code</th><th>Meaning</th><th>Common Scenarios</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge badge-green">200</span></td><td>Success</td><td>GET, PUT, POST (actions like send/sign/pay)</td></tr>
+            <tr><td><span class="badge badge-green">201</span></td><td>Created</td><td>POST create operations (clients, proposals, invoices)</td></tr>
+            <tr><td><span class="badge badge-orange">400</span></td><td>Bad Request</td><td>Missing required fields, invalid status transition</td></tr>
+            <tr><td><span class="badge badge-red">401</span></td><td>Unauthorized</td><td>Missing/expired JWT token</td></tr>
+            <tr><td><span class="badge badge-red">403</span></td><td>Forbidden</td><td>Client accessing admin routes, wrong organization</td></tr>
+            <tr><td><span class="badge badge-orange">404</span></td><td>Not Found</td><td>Resource doesn't exist or not in user's organization</td></tr>
+            <tr><td><span class="badge badge-purple">409</span></td><td>Conflict</td><td>Client already invited, duplicate email</td></tr>
+            <tr><td><span class="badge badge-red">500</span></td><td>Server Error</td><td>Supabase errors, unexpected exceptions</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Security Boundaries</h3>
+      <div class="card-grid">
+        <div class="card">
+          <h4>Organization Isolation</h4>
+          <p>All queries filter by <code>organization_id</code>. Admin A cannot see Admin B's data.</p>
+        </div>
+        <div class="card">
+          <h4>Role-Based Access</h4>
+          <p>Admin: full CRUD. Client: read own data only. Enforced at blueprint level.</p>
+        </div>
+        <div class="card">
+          <h4>Row-Level Security</h4>
+          <p>Supabase RLS policies provide defense-in-depth. Backend uses service role key.</p>
+        </div>
+        <div class="card">
+          <h4>Token Validation</h4>
+          <p>Every protected endpoint validates JWT against Supabase Auth API. No local JWT secrets.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         §18 — DEPLOYMENT
+         ════════════════════════════════════════════ -->
+    <section class="doc-section" id="deployment">
+      <h2>Deployment Guide</h2>
+
+      <h3>Prerequisites</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Dependency</th><th>Version</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td>Python</td><td>3.13+</td><td>Backend runtime</td></tr>
+            <tr><td>Node.js</td><td>18+</td><td>Frontend build/dev</td></tr>
+            <tr><td>Supabase Project</td><td>—</td><td>PostgreSQL + Auth</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Environment Variables</h3>
+      <div class="code-header"><span>backend/.env</span><button class="copy-btn">Copy</button></div>
+      <pre><code class="bash">SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_KEY=eyJ...             # anon (public) key
+SUPABASE_SERVICE_KEY=eyJ...     # service_role key (bypasses RLS)
+JWT_SECRET_KEY=your-jwt-secret
+FLASK_SECRET_KEY=your-flask-secret</code></pre>
+
+      <h3>Local Development Setup</h3>
+      <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+      <pre><code class="bash"># 1. Backend
+cd backend
+pip install -r requirements.txt
+python app.py                    # Runs on :5000
+
+# 2. Frontend
+cd frontend
+npm install --legacy-peer-deps
+npm run dev                      # Runs on :3000
+
+# 3. Database
+# Run supabase_schema_v2.sql in Supabase SQL Editor</code></pre>
+
+      <h3>Database Migration</h3>
+      <div class="callout callout-warning">
+        <span class="callout-icon">⚠️</span>
+        <span>Run <code>supabase_schema_v2.sql</code> in your Supabase SQL Editor. This creates all 17 tables, triggers, functions, and RLS policies. The V2 schema replaced the <code>amount</code> column on invoices with <code>subtotal</code>/<code>total</code>/<code>tax_rate</code>/<code>tax_amount</code>/<code>discount_amount</code>.</span>
+      </div>
+
+      <h3>Key Configuration</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Setting</th><th>Value</th><th>Location</th></tr></thead>
+          <tbody>
+            <tr><td>Max upload size</td><td>16 MB</td><td>config.py</td></tr>
+            <tr><td>JWT access token expiry</td><td>24 hours</td><td>config.py</td></tr>
+            <tr><td>JWT refresh token expiry</td><td>30 days</td><td>config.py</td></tr>
+            <tr><td>Default currency</td><td>ZAR</td><td>invoices.py</td></tr>
+            <tr><td>Default invoice due days</td><td>14</td><td>invoices.py</td></tr>
+            <tr><td>CORS origin</td><td>http://localhost:3000</td><td>app.py</td></tr>
+            <tr><td>Upload storage</td><td>backend/uploads/</td><td>config.py</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div style="margin-top:64px;padding-top:24px;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:12px;">
+      <p>AstroTechnologies Portal Documentation v2.0 — Last updated February 8, 2026</p>
+      <p style="margin-top:4px;">Built with HTML, CSS & JavaScript — No external dependencies</p>
+    </div>
+
+  </div><!-- /content-body -->
+</main>
+</div><!-- /app-layout -->
+
+<script src="js/docs.js"></script>
+</body>
+</html>

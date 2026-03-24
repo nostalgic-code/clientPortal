@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "id": "8b4083ef-a42d-4df1-9ba8-b262630c97db",
+      "filename": "parkrun-barcode-A11945315.pdf",
+      "storage_name": "8b4083ef-a42d-4df1-9ba8-b262630c97db_parkrun-barcode-A11945315.pdf",
+      "category": "other",
+      "size": 39834,
+      "mime_type": "application/pdf",
+      "notes": "barcode",
+      "uploaded_at": "2026-02-08T12:19:43.147673"
+    },
+    {
+      "id": "7fed9755-6cdf-4acf-a3ff-dbae2eb36f3d",
+      "filename": "Changes to the BCA website.pdf",
+      "storage_name": "7fed9755-6cdf-4acf-a3ff-dbae2eb36f3d_Changes_to_the_BCA_website.pdf",
+      "category": "content",
+      "size": 2394394,
+      "mime_type": "application/pdf",
+      "notes": "website content",
+      "uploaded_at": "2026-02-09T07:56:02.547173"
+    }
+  ]
+}
