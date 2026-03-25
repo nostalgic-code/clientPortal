@@ -15,8 +15,9 @@ def create_app(config_name='default'):
     app.url_map.strict_slashes = False
     
     # Initialize CORS
+    allowed_origins = os.getenv('ALLOWED_ORIGINS', 'http://localhost:3000').split(',')
     CORS(app, resources={r"/api/*": {
-        "origins": ["http://localhost:3000"],
+        "origins": allowed_origins,
         "allow_headers": ["Content-Type", "Authorization"],
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
     }}, supports_credentials=True)
