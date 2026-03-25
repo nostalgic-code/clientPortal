@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -16,6 +16,14 @@ import { proposalsApi, clientsApi, templatesApi, Proposal, Client, DocumentTempl
 import { getToken } from '@/lib/supabase';
 
 export default function ProposalsPage() {
+  return (
+    <Suspense fallback={<div className="p-8"><div className="animate-pulse space-y-4"><div className="h-8 bg-slate-200 rounded w-1/4"></div></div></div>}>
+      <ProposalsContent />
+    </Suspense>
+  );
+}
+
+function ProposalsContent() {
   const [proposals, setProposals] = useState<Proposal[]>([]);
   const [clients, setClients] = useState<Client[]>([]);
   const [templates, setTemplates] = useState<DocumentTemplate[]>([]);

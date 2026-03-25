@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -30,6 +30,14 @@ function parseDueDays(terms: any): string | null {
 }
 
 export default function InvoicesPage() {
+  return (
+    <Suspense fallback={<div className="p-8"><div className="animate-pulse space-y-4"><div className="h-8 bg-slate-200 rounded w-1/4"></div></div></div>}>
+      <InvoicesContent />
+    </Suspense>
+  );
+}
+
+function InvoicesContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [invoices, setInvoices] = useState<Invoice[]>([]);

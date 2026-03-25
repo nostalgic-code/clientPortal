@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase, getToken } from '@/lib/supabase';
 import { documentsApi, Document, DocumentType, clientsApi, Client, projectsApi, Project, templatesApi, DocumentTemplate } from '@/lib/api';
@@ -118,6 +118,14 @@ const DOCUMENT_TYPES: DocumentType[] = [
 ];
 
 export default function DocumentsPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-900" /></div>}>
+      <DocumentsContent />
+    </Suspense>
+  );
+}
+
+function DocumentsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { toast } = useToast();
