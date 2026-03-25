@@ -10,6 +10,6 @@ gunicorn==21.2.0
 psycopg2-binary==2.9.9
 
 # Supabase
-supabase==2.10.1
+supabase==2.10.0
 httpx[http2]>=0.27,<0.29
 python-jose[cryptography]==3.3.0
